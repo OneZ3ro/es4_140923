@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Job from "./Job";
 import { useParams } from "react-router-dom";
+import BtnHome from "./BtnHome";
 
 const CompanySearchResults = () => {
   const [jobs, setJobs] = useState([]);
   const params = useParams();
 
-  const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?company=";
+  const baseEndpoint =
+    "https://strive-benchmark.herokuapp.com/api/jobs?company=";
 
   useEffect(() => {
     getJobs();
@@ -31,9 +33,14 @@ const CompanySearchResults = () => {
   return (
     <Container>
       <Row>
-        <Col className="my-3">
+        <Col className="my-3 d-flex justify-content-between">
           <h1 className="display-4">Job posting for: {params.company}</h1>
-          {jobs.map(jobData => (
+          <BtnHome />
+        </Col>
+      </Row>
+      <Row>
+        <Col className="my-3">
+          {jobs.map((jobData) => (
             <Job key={jobData._id} data={jobData} />
           ))}
         </Col>

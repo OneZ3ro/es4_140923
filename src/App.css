@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+/* ____________________________________________________________ */
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: blue;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+a i:hover {
+  color: red;
+  font-weight: 800;
+}
