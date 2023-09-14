@@ -1,6 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import BtnHome from "./BtnHome";
+import { Link } from "react-router-dom";
 
 const Favourites = () => {
   const favouritesCompanies = useSelector(
@@ -22,7 +23,8 @@ const Favourites = () => {
           style={{ border: "1px solid #00000033", borderRadius: 4 }}
         >
           <Col xs={10}>
-            <strong>Company:</strong> {company}
+            <strong>Company: </strong>
+            <Link to={`/${company}`}>{company}</Link>
           </Col>
         </Row>
       ))}
