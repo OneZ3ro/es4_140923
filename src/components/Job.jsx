@@ -12,17 +12,16 @@ const Job = ({ data }) => {
     >
       <Col xs={3}>
         <Link to={`/${data.company_name}`}>{data.company_name}</Link>
-        <Link
-          to={"/favourites"}
+
+        <i
+          className="bi bi-heart ms-3"
           onClick={() => {
             dispacth({
               type: "ADD_TO_FAVOURITE_COMPANIES",
               payload: data.company_name,
             });
           }}
-        >
-          <i className="bi bi-heart ms-3"></i>
-        </Link>
+        ></i>
         {/* <Link to={"/favouritesCompany"}>
         <i className="bi bi-heart-fill"></i>
       </Link> */}

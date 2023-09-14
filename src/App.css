@@ -50,7 +50,7 @@ a:hover {
   font-weight: 600;
 }
 
-a i:hover {
+i:hover {
   color: red;
   font-weight: 800;
 }

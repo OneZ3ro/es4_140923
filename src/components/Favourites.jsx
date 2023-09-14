@@ -1,5 +1,5 @@
-import { Col, Container, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import BtnHome from "./BtnHome";
 import { Link } from "react-router-dom";
 
@@ -7,6 +7,8 @@ const Favourites = () => {
   const favouritesCompanies = useSelector(
     (state) => state.favourites.companies
   );
+
+  const dispatch = useDispatch();
 
   return (
     <Container>
@@ -19,13 +21,22 @@ const Favourites = () => {
       {favouritesCompanies.map((company, index) => (
         <Row
           key={index}
-          className="mx-0 mt-3 p-3"
+          className="mx-0 mt-3 p-3 align-items-center"
           style={{ border: "1px solid #00000033", borderRadius: 4 }}
         >
-          <Col xs={10}>
+          <Col>
             <strong>Company: </strong>
             <Link to={`/${company}`}>{company}</Link>
           </Col>
+          <Button
+            variant="danger"
+            style={{ width: "fit-content" }}
+            onClick={() =>
+              dispatch({ type: "REMOVE_FAVORITE_COMPANY", payload: index })
+            }
+          >
+            Remove
+          </Button>
         </Row>
       ))}
     </Container>

@@ -6,7 +6,7 @@ const MyFooter = () => {
   return (
     <Container
       fluid
-      style={{ position: "absolute", bottom: "0", paddingBlock: "10px" }}
+      style={{ position: "fixed", bottom: "0", paddingBlock: "10px" }}
     >
       <Col className="d-flex justify-content-center">
         <Button variant="light" onClick={() => navigate("/favourites")}>
